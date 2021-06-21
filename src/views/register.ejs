@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('partials/head') %>
+
+<body>
+    <%- include('partials/header') %>
+
+<main class="main-del-register">
+    
+
+
+        <h1>Crear cuenta</h1>
+
+        
+           <section class="secsion-del-register">
+                <form action="/user/register" method="POST" enctype="multipart/form-data">
+                    
+                    <article class="dato-nombre">
+                       
+                            <label for="nombre">Nombre</label>
+                        
+                        <input class="datos-del-register-especificos" type="text" name="firstName" id="nombre"
+                            value="<%= locals.oldData ? oldData.firstName : null %>">
+                            <% if(locals.errors && errors.firstName){ %>
+                                <div><%= errors.firstName.msg %></div>
+                            <% } %>
+                    </article>
+                    <article class="dato-apellido">
+                        
+                            <label for="su-apellido">Apellido</label>
+                       
+                        <input class="datos-del-register-especificos" type="text" name="lastName"
+                            id="su-apellido" value="<%= locals.oldData ? oldData.lastName : null %>">
+                            <% if(locals.errors && errors.lastName){ %>
+                                <div><%= errors.lastName.msg %></div>
+                            <% } %>
+                    </article>
+                    <article class="dato-email">
+                        
+                            <label for="su-email">Email</label>
+                        
+                        <input class="datos-del-register-especificos" type="email" name="email" id="su-email"
+                             value="<%= locals.oldData ? oldData.email : null %>">
+                             <% if(locals.errors && errors.email){ %>
+                                <div><%= errors.email.msg %></div>
+                            <% } %>
+                    </article>
+                    <article class="dato-su-numero">
+                        
+                            <label for="su-telefono">Número</label>
+                        
+                        <input class="datos-del-register-especificos" type="tel" name="telefonoUsuario"
+                            id="su-telfeono" value="<%= locals.oldData ? oldData.telefonoUsuario : null %>">
+                    </article>
+                    <article class="dato-su-contraseña">
+                        
+                            <label for="contraseña">Contraseña</label>
+                        
+                        <input class="datos-del-register-especificos" type="password" name="password"
+                            id="contraseña" placeholder="La contraseña debe tener entre 6 y 12 caracteres">
+                            <% if(locals.errors && errors.password){ %>
+                                <div><%= errors.password.msg %></div>
+                            <% } %>
+                    </article>
+                    <article class="dato-confirmacion-de-contraseña">
+                        
+                            <label for="confirmacion-de-contraseña">Confirme su contraseña</label>
+                        
+                        <input class="datos-del-register-especificos" type="password" name="confirmPassword"
+                            id="confirmPassword" placeholder="La contraseña debe tener entre 6 y 12 caracteres">
+                    </article>
+                    <article class="dato-confirmacion-de-contraseña">
+
+                    <label>Genero</label>
+                                <select>
+                                    <option>Masculino</option>
+                                    <option>Femenino</option>
+                                    <option>Otros</option>
+                                </select>
+                            </article>
+
+                            <article class="dato-confirmacion-de-contraseña">
+
+
+                                <label for="avatarDeUsuario">Su imagen</label>
+                                <input type="file" name="avatar" >
+            
+            
+                                </article>
+                        <button class="boton-register-interno" type="submit">Crear cuenta</button>
+
+                    
+
+                </form>
+            </section>
+            
+                <a href="/user/login" class="enlace-del-register">¿Ya tiene cuenta?</a>
+            
+        
+    
+
+                <%- include('partials/bannerFinal') %>
+</main>
+
+<%- include('partials/footer') %>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('partials/head') %>
+
+<body>
+    <%- include('partials/header') %>
+    
+
+    
+<main class="mainDelLogin">
+    
+    
+        
+            
+            <h1 class="tituloDelLogin">Iniciar sesión</h1>
+            
+
+    <section class="seccion-del-login">
+    <form action="/user/login" method="POST">
+        
+        <article class="dato-email-login"> 
+
+    <label  for="email">Email</label>
+
+    <input class="datos-del-login-mas-especificos" type="email" name="email" id="email" value="<%= locals.oldData ? oldData.email : null %>">
+    <% if(locals.errors && errors.email){ %>
+        <div><%= errors.email.msg %></div>
+    <% } %>
+</article>
+<article class="dato-contraseña-login">
+    
+    <label for="password">Contraseña</label>
+    
+    <input class="datos-del-login-mas-especificos" type="password" name="password" id="password">
+    <% if(locals.errors && errors.password){ %>
+        <div><%= errors.password.msg %></div>
+    <% } %>
+</article>
+<article class="datosDelLogin">
+
+    <label for="remember_user">Recordar contraseña</label>
+    <input type="checkbox" name="remember_user" id="recordatorio-de-cuenta">
+
+</article>
+
+    
+<button class="boton-login-interno" type="submit">Acceder</button>
+
+
+
+</form>
+</section>
+
+<a href="" class="enlace-del-login">¿Olvido su contraseña?</a>
+
+
+
+
+<a href="/user/register" class="enlace-del-login">¿No tienes cuenta aún? Regístrate</a>
+
+
+
+
+<%- include('partials/bannerFinal') %>
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include('partials/footer') %>
+
+</body>
+
+</html>

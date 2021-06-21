@@ -1,0 +1,62 @@
+<header>
+
+    <section class="topMenu">
+        <a href="/"><img src="/images/Logo-Ronin.png" alt="Logo Ronin"></a>
+
+        <div class="contenedorIconos">
+            <div class="ContenedorBuscador">
+                <form class="buscador" action="#">
+                    <input type="text" placeholder="Buscar" name="search">
+                    <button type="submit" class="buttonSearch"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <ul class="logged">
+                <div class="loggedImage">
+                    <% if(locals.isLogged){ %>
+                        <li>
+                             <button type="submit" class="buttonSearch"><i class="fa fa-search"></i></button>
+
+                            <a href="/user/productCart"><i class="fas fa-shopping-cart"></i></a>
+    
+                            <a href="/user/profile"><img src="/images/avatars/<%= locals.userLogged.avatar %> "
+                                    alt="imagen de perfil" width="100%" style="border-radius: 100%;">
+    
+                                <!-- <div class="saludo"> Hola <%= locals.userLogged.firstName %>! </div> -->
+    
+                            </a>
+                        </li>
+                        <!-- <li><a href="/user/logout">Logout</a></li> -->
+    
+                </div>
+    
+                <% }else{ %>
+
+                    <button type="submit" class="buttonSearch"><i class="fa fa-search"></i></button>                    
+                    <a href="/user/productCart"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="/user/login"><i class="fas fa-user-circle"></i></a>
+                    <div class="burger-menu"><i class="fa fa-bars burger"></i>
+                    </div>
+    
+    
+                    <% } %>
+            </ul>
+        </div>
+        
+    </section>
+
+    <section class="bottom-menu">
+        
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="#ancla-1">Contacto</a></li>
+                    <li><a href="/FAQ">Preguntas frecuentes</a></li>
+                    <li><a href="/vistaAdministrador">Stock de productos</a></li>
+                </ul>
+            </nav>
+       
+    
+    </section>
+   
+
+</header>

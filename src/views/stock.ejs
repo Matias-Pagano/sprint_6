@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+        <main class="stockmain">
+
+            <article class="boton-carga-producto stockButtonEx">
+                <label for="volverAtrás" method=""></label>
+                <a href='/admin' class="botonVistaAdministrador">Volver a la vista
+                    de administrador</a>
+            </article>
+
+            <section class="search-product-container">
+                <form class="buscadorInterno" action="#">
+                    <input type="text" placeholder="Id del producto" name="search">
+                    <button type="submit"><i class="fa fa-search iconsearch exeptI"></i></button>
+                </form>
+            </section>
+
+            <% if(locals.products) {%>
+
+                <% products.forEach(product=> {%>
+                    <%- include('partials/stockProduct-partial', {product}) %>
+
+                        <%})%>
+                            <%}else{%>
+                                <p>No se encontraron productos</p>
+                                <% } %>
+
+                                    <article class="boton-carga-producto">
+                                        <label for="volverAtrás" method=""></label>
+                                        <a href='/admin' class="botonVistaAdministrador">Volver a la vista
+                                            de administrador</a>
+                                    </article>
+
+
+
+
+
+
+
+
+
+
+
+        </main>
+        <%- include('partials/bannerFinal') %>
+
+
+
+
+
+
+
+
+
+
+            <%- include('partials/footer') %>
+
+
+
+
+</body>
+
+</html>

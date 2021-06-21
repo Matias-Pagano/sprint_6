@@ -1,0 +1,21 @@
+<section class="big-container-stock">
+    <figcaption class="imgStock">
+        <img src="/images/<%= product.image %>" alt="Watch image">
+    </figcaption>
+<table class="stockTable">
+    <tr>
+        <td class="tdcolor">Producto</td>
+        <td class="tdcolor">Precio</td>
+        <td class="tdcolor">Stock</td>
+
+    </tr>
+    <tr>
+        <td class="tdcolor"><%= product.nombre %></td>
+        <td class="tdcolor">$ <%= product.precio %></td>
+        <td class="tdcolor"><%= product.stock %></td>
+    </tr>
+</table>
+<div class="EditIcon">
+    <a href="producto-stock/<%= product.id %>"> <i class="far fa-edit"></i></a>
+ </div>
+</section>

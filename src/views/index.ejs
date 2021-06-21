@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+
+    <%- include('partials/head') %>
+
+    
+
+<body>
+    <%- include('partials/header') %>
+
+
+<main class="main-index">
+   -- <section class="bloque-carrusel">
+        <img src="/images/carrousel-02.png" alt="carrusel">
+        <!-- <i class="fas fa-angle-left"></i>
+        <i class="fas fa-angle-right"></i> -->
+    </section>
+    <!-- <section class="video">
+        <video src="./images/videoR.mp4#t=2" poster="./images/relojcarrusel.jpg" autoplay muted loop>
+        </video>
+    </section>
+    -->
+
+   
+ 
+    <section class="bloque-filtros-productos">
+        
+        <div class="filtrosR">
+            <form action="/filtroRelojes" method="POST" class="filtroRelojes">
+                    
+                <div class="precioR">
+                    <h4>Precio</h4>
+                    <div class="barritaPrecio">
+                        <input type="range" min="1" max="100" value="50" class="barraPInput" id="myRange">
+                        <p>Value: <span id="demo"></span></p>
+                      </div>        
+                </div>
+                
+               <div class="lineas">
+                   <h4>Línea</h4>
+                   <label for="linea" class="lineas">
+                   <input type="checkbox" name="linea" value="lineaFem"> Línea Femenina</label>
+                   <label for="linea" class="lineas">
+                    <input type="checkbox" name="linea" value="lineaMasc"> Línea Masculina</label>
+                    <label for="linea" class="lineas">
+                        <input type="checkbox" name="linea" value="lineaNoGender"> Línea No-gender</label>
+                   
+               </div>
+
+                <div class="colorR">   
+                    <h4>Color</h4>
+                       
+                    <label for="1" class="colorR">
+                        <input type="checkbox" name="color" value="Gold" id="1">
+                    Gold
+                    </label>                
+                    <label for="2" class="colorR">
+                        <input type="checkbox" name="color" value="Blanco" id="2">
+                   Blanco
+                    </label>
+                    <label for="3" class="colorR">
+                        <input type="checkbox" name="color" value="Negro" id="3">
+                    Negro                    </label>
+                    <label for="4" class="colorR">
+                        <input type="checkbox" name="color" value="Pink" id="4">
+                    Pink
+                    </label>
+                </div> 
+
+                <div class="tipoR">
+                    <h4>Tipo</h4>
+                       
+                    <label for="1a" class="tipoR">
+                        <input type="checkbox" name="tipo" value="Analógico" id="1a">
+                    Analógico
+                    </label>                
+                    <label for="1b" class="colorR">
+                        <input type="checkbox" name="tipo" value="Digital" id="1b">
+                   Digital
+                    </label>
+                </div>  
+
+               <div class="botFiltros">
+                   <button>Aplicar filtros</button>
+               </div> 
+               <div class="botFiltros">
+                <button>Borrar filtros</button>
+            </div> 
+                </form>
+
+        </div>
+        
+        <div class="productosR">
+            <% products.forEach(product => {%>
+                <%- include('partials/product', {product}) %>
+
+                <%})%> 
+    
+        </div>
+       
+
+    </section>
+    <section class="botonMostrarTodo">
+        <button>Mostrar todo</button>
+    </section>
+
+
+    <%- include('partials/bannerFinal') %>
+</main>
+
+
+<%- include('partials/footer') %>
+
+
+</body>
+
+</html>

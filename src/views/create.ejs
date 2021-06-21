@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %>
+
+    <body>
+
+        <%- include('partials/header') %>
+
+            <main class="carga-productos">
+                <form action="/admin/create/" method="POST">
+                    <!-- enctype="multipart/form-data" -->
+                    <section class="categorias">
+                        <article class="Datos-producto">
+                            <div class="nombre">
+                                <label for="name">Nombre del producto</label>
+                                <input type="text" name="name" id="nombreP" value="<%= locals.oldData ? oldData.name : null %>">
+                                <% if(locals.errors && errors.name){ %>
+                                    <div><%= errors.name.msg %></div>
+                                <% } %>
+                            </div>
+                            <div class="description">
+                                <label for="description">Descripción</label>
+                                <input type="text" name="description"  id="marcaP" value="<%= locals.oldData ? oldData.description : null %>">
+                                <% if(locals.errors && errors.description){ %>
+                                    <div><%= errors.description.msg %></div>
+                                <% } %>
+                            </div>
+        
+                            <div class="precio">
+                                <label for="price">Precio</label>
+                                <input type="number" name="price" id="precioP" value="<%= locals.oldData ? oldData.precio : null %>">
+                                <% if(locals.errors && errors.price){ %>
+                                    <div><%= errors.price.msg %></div>
+                                <% } %>
+                            </div>
+                        </article>
+                        <article class="categoria-producto">
+                            <div class="elegir-categoria">
+                                <label for="categorie">Línea</label>
+                                <select name="categorie" id="categoria">
+                                    <option value="Femenina">Femenina</option>
+                                    <option value="Masculina">Masculina</option>
+                                    <option value="No-gender">No-gender</option>
+                                </select>
+                                <!-- <input type="text" name="categoria" value="<%= locals.oldData ? oldData.categoria: null %>">
+                                <% if(locals.errors && errors.categoria){ %>
+                                    <div><%= errors.categoria.msg %></div>
+                                <% } %> -->
+
+                            </div>
+                            <div class="tipo">
+                                <label for="type">Tipo</label>
+                                <select id="type" name="type">
+                                    <option>Analógico</option>
+                                    <option>Digital</option>
+                                </select>
+                            </div>
+                            <div class="color">
+                                <label for="color">Color</label>
+                                <select id="color" name="color">
+                                    <% if(productColors){ %>
+                                        <% productColors.forEach(color => { %>
+                                            <option value="<%= color.id %>"><%= color.name %></option>
+                                      <% }) %>
+                                   <% } %>
+                                </select>
+                            </div>
+                        </article>
+                    </section>
+                    <section class="descripción-producto">
+                        <!-- <article class="text-area-producto">
+                            <label for="descripcionP">Descripcón del producto</label>
+                            <textarea id="descripcionP"></textarea>
+                            <label for="componentesP">Componentes del producto</label>
+                            <textarea id="componentesP"></textarea>
+                        </article> -->
+                        <!-- <section>
+                            <article class="carga-fotos">
+                                <label for="image">Subir imágenes</label>
+                                <input id="imageP" type="file" name="image" accept="image/*" value="<%= locals.oldData ? oldData.image : null %>">
+                            </article>
+                        </section> -->
+                        <article class="unidades-stock">
+                            <label for="stock">Unidades en stock</label>
+                            <input id="stock" type="number" name= "stock" value="<%= locals.oldData ? oldData.stock : null %>">
+                            <% if(locals.errors && errors.stock){ %>
+                                <div><%= errors.stock.msg %></div>
+                            <% } %>
+                        </article>
+                        <article class="boton-carga-producto">
+                            <label for="producto-nuevo"></label>
+                            <button class="boton-guardar-producto" type="submit">producto</button>
+                        </article>
+                        <article class="boton-carga-producto">
+                            <label for="volverAtrás"></label>
+                            <a href='/admin' class="botonVistaAdministrador">Volver a la vista de administrador</a>
+                        </article>
+                    </section>
+                </form>
+
+
+                <%- include('partials/bannerFinal') %>
+            </main>
+
+            <%- include('partials/footer') %>
+
+    </body>
+
+</html>

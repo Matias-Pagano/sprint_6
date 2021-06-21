@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('partials/head') %>
+
+<body>
+    <%- include('partials/header') %>
+    <main class="main-del-vistas-administrador">
+        <h1 class="h1-del-vistasAdministrador">Administración de productos</h1>
+
+        <h2 class="h2-del-vistasAdministrador">Bienvenido administrador/a </h2>
+        <h3>¿Qué desea hacer?</h3>
+
+        
+
+        <section class="form-del-vistas">
+            <a class="a-del-vistas-administrador" href="/admin/stock"> <!---VA LA RUTA COMPLETA, CON EL PREFIJO-->
+            <p class="botob-del-vistaAdministrador">Editar artículos</p> 
+        </a>
+        <a class="a-del-vistas-administrador" href="/admin/create">
+            <p class="botob-del-vistaAdministrador">Añadir nuevo artículo</p>
+             </a>
+        <a class="a-del-vistas-administrador" href="/">
+            <p class="botob-del-vistaAdministrador">Volver al home</p>
+            </a>
+            
+
+
+        </section>
+    
+
+
+        <%- include('partials/bannerFinal') %>
+
+    </main>
+
+
+
+    <%- include('partials/footer') %>
+    
+</body>
+</html>

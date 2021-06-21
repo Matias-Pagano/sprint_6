@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('partials/head') %>
+
+<body>
+
+    <%- include('partials/header') %>
+    
+<main>
+    
+<section class="contenedor-forms">
+
+<section class="contenedor-datos">
+        <form action="/" method="POST" class="create-form">
+            <div class="control-create-form">
+                <h2>Datos de facturación:</h2>
+                <label for="name"></label>
+                <input type="text" name="name" placeholder="Nombre*" class="control-form" required>
+                <label for="last-name"></label>
+                <input type="text" name="last-name" placeholder="Apellido*" class="control-form" required>
+            </div>
+            <div class="control-create-form">
+                <label for="address"></label>
+                <input type="text" name="address" id="address" placeholder="Dirección*" class="control-form">
+                <label for="location"></label>
+                <input type="text" name="location" id="location" placeholder="Localidad*" class="control-form">
+            </div>
+            <div class="control-create-form">
+                <label for="province"></label>
+                <input type="text" name="province" placeholder="Provincia*" class="control-form">
+                <label for="zip-code"></label>
+                <input type="text" name="zip-code" placeholder="Código postal*" class="control-form">
+            </div>
+            <div class="control-create-form">
+                <label for="telephone"></label>
+                <input type="tel" name="telephone" placeholder="Teléfono*" class="control-form">
+                <label for="e-mail"></label>
+                <input type="email" name="e-mail" placeholder="Correo electrónico*" class="control-form">
+            </div>
+            <div class="control-create-form">
+                <label for="dni"></label>
+                <input type="text" name="dni" placeholder="DNI*" class="control-form">
+            </div>
+            <div class="control-create-form">
+            <label for="newsletter"></label> 
+                <input type="checkbox" name="newsletter">¡Quiero recibir promociones y descuentos!
+            </div>
+            <div class="contenedor-buttons-create-form">
+                <button type="submit" value="submit" class="buttons-create-form" id="bu">Guardar</button>
+                <button type="reset" value="Borrar" class="buttons-create-form">Borrar</button>
+            </div>
+        </div>
+        </form>
+     </section>
+     <section class="contenedor-billing">
+        <form action="/billing" method="POST" class="form-billing">
+            <div class="control-formulario">
+                <h2>Seleccione un método de pago:</h2>
+                <label for="payment-type"></label> 
+                    <select name="payment-type" class="paymentList"> 
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+                        <option value="Tarjeta débito">Tarjeta débito</option> 
+                        <option value="Mercado Pago">Mercado Pago</option>
+                        <option value="Pay Pal">Pay Pal</option>
+                        <option value="Western Union">Western Union</option>    
+                    </select> 
+            </div>
+            <div class="control-formulario">
+                <label for="card-number">Número de la tarjeta* :</label>
+                    <label><input type="text" name="card-number" id="card-number" placeholder="Ej. 12345-6789" class="control" required ></label>
+            </div>
+            <div class="control-formulario">
+                <label for="card-date">Fecha de vencimiento* :</label>
+                    <label><input type="text" name="card-date" id="card-date" placeholder="mm/aa" required class="control"></label>
+            </div>
+            <div class="control-formulario">
+                <label for="card-pass">Código de seguridad* :</label>
+                    <label><input type="password" name="card-pass" id="card-pass" required></label>
+            </div>
+            <div class="control-formulario">
+                <label for="cuotas">Número de cuotas*:</label>
+                    <select name="cuotas" class="paymentList">
+                        <option value="3">3</option>
+                        <option value="6">6</option>
+                        <option value="12">12</option>
+                    </select>
+            </div>
+            <div class="control-formulario">
+                <label for="terminos">
+                    <input type="checkbox" name="terminos">
+                    He leído y acepto los términos y condiciones
+                </label>
+                <br>
+                <br>
+                <label for="newsletter"> 
+                    <input type="checkbox" name="newsletter">
+                    ¡Quiero recibir promociones y descuentos!
+                </label>      
+                <br>
+                <br>
+            <button type="submit" class="button-billing">Realizar pago</button>
+        </form>
+    </section>    
+    
+</section>
+
+
+<%- include('partials/bannerFinal') %>
+
+    </main>
+    <%- include('partials/footer') %>
+</body>
+
+</html>

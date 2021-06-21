@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head'); %>
+
+	<body>
+		<%- include('partials/header'); %>
+
+			<!-- Container -->
+			<div class="containerLogged">
+				<div class="row">
+					<div class="col-md-3">
+						<h2>
+							<%= user.nombre %>
+						</h2>
+						<img src="../images/avatars/<%= user.avatar %>" width="100%">
+						<br>
+						<div class="alert-success">Nombre del usuario: <%= user.firstName %>
+								<%= user.lastName %>
+						</div>
+						<br>
+						<div class="alert-success">Email del usuario: <%= user.email %>
+						</div>
+						<br>
+						<a href="/">
+							<p>Volver a la tienda</p>
+						</a>
+						<br>
+						<ul>
+							<li><a href="/user/logout">Logout</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- //Container -->
+
+			<%- include('partials/footer'); %>
+	</body>
+
+</html>

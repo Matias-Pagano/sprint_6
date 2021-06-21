@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <%- include('partials/header') %>
+
+<main>
+
+
+    <main class="carga-productos">
+                    <section class="categorias">
+                    <form action="/vistaAdministrador/producto-stock/<%=  product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                        <article class="Datos-producto">
+                            <div class="nombre">
+                                <label>Nombre del producto</label>
+                                <input type="text" name="nombre" value="<%= product.nombre %>" >
+                                <% if(locals.errors && errors.nombre){ %>
+                                    <div><%= errors.nombre.msg %></div>
+                                <% } %>
+                            </div>
+                             <div class="color">
+                                <label>Descripción</label>
+                                <input type="text" name="description" value="<%= product.description %>">
+                                <% if(locals.errors && errors.description){ %>
+                                    <div><%= errors.description.msg %></div>
+                                <% } %>
+                            </div>
+                            <div class="precio">
+                                <label>Precio</label>
+                                <input type="number" name="precio" value="<%= product.precio %>">
+                                <% if(locals.errors && errors.precio){ %>
+                                    <div><%= errors.precio.msg %></div>
+                                <% } %>
+                            </div>
+                        </article>
+                        <article class="categoria-producto">
+                            <div class="elegir-categoria">
+                                <label>Categorí­a</label>
+                                <input type="text" name="categoria" value="<%= product.categoria %>">
+                                <% if(locals.errors && errors.categoria){ %>
+                                    <div><%= errors.categoria.msg %></div>
+                                <% } %>
+                            </div>
+                            <div class="tipo">
+                                <label>Tipo</label>
+                                <select>
+                                    <option>Analógico</option>
+                                    <option>Digital</option>
+                                </select>                                
+                            </div>
+                            <div class="color">
+                                <label for="colorId">Color</label>
+                                <select id="colorId">
+                                    <option>White</option>
+                                    <option>Black</option>
+                                    <option>Gold</option>
+                                    <option>Pink</option>
+                                </select>
+                            </div>
+                       </article>
+                    </section>
+                    <section class="descripcion-producto">
+                        <!-- <article class="text-area-producto">
+                            <label>Descripción del producto</label>
+                            <textarea  name="description" value=""></textarea>
+                            
+                        </article> -->
+                        <section>
+                            <article class="carga-fotos">
+                                <label>Subir imágenes</label>
+                                <img src="/images/<%= product.image %>" width="250px">
+                               <input type="file" name="image" value="<%= product.image %>" accept="image/*">
+                               <input type="hidden" name="oldImage" value="<%= product.image %>">
+
+                            </article>
+                       </section>
+                        <article class="unidades-stock">
+                            <label>Unidades en stock</label>
+                            <input type="number" name = "stock"<%= product.stock %>>
+                            <% if(locals.errors && errors.stock){ %>
+                                <div><%= errors.stock.msg %></div>
+                            <% } %>
+                        </article>
+                        <article class="boton-carga-producto">
+                            <label for="producto-nuevo" method=""></label>
+
+                            
+
+                        <button class="boton-editar-producto" type="submit">Guardar cambios</button>
+                        </article>
+                        <article class="boton-carga-producto">
+                            <label for="volverAtrás" method=""></label>
+                            <a href='/vistaAdministrador/producto-stock' class="botonVistaAdministrador">Volver a stock de productos</a>
+                        </article>
+                        <article class="boton-carga-producto">
+                            <label for="volverAtrás" method=""></label>
+                            <a href='/vistaAdministrador' class="botonVistaAdministrador">Volver a la vista de administrador</a>
+                        </article>
+                        <br>
+                        <br>
+                        <h2 class="productEliminar">¿Desea eliminar este producto de la base de datos?</h2>
+                       
+                    </section>
+                </form>
+
+                
+
+            <form action="/vistaAdministrador/producto-stock/<%= product.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+                            <article class="botonEliminarP">
+                    <button class="boton-borrar-producto" type="submit">Eliminar producto</button>
+                    </article>
+            </form>
+         
+
+
+
+
+
+
+
+
+
+
+
+    <%- include('partials/bannerFinal') %>
+</main>
+
+
+
+
+
+
+
+
+
+ <%- include('partials/footer') %>
+
+
+
+    
+</body>
+</html>

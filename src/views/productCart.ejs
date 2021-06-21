@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('partials/head') %>
+<body>
+    
+    <%- include('partials/header') %>
+
+
+<main class="carrito-main">
+   
+    <div class="mini-banner">
+        <p>"Reloj Tokio" ha sido añadido a tu carrito con éxito.</p>
+    </div>
+    <div class="seguir-comprando">
+    <a href="/" id="enlaceCompra">
+        <p class="seguirC">Seguir comprando<i class="fas fa-store"></i></p>
+    </a>
+    </div>
+
+    <table>
+        
+        <thead>
+          <tr>
+            <th> </th>
+            <th>Producto</th>
+            <th>Unidades</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="imagen"><img src="/images/Reloj1.jpg"></td>
+            <td>Reloj Kamakura</td>
+            <td><input type="number" name="unidades" id="unidades" max="10" min="0"></td>
+            <td>$38.000</td>
+          </tr>
+          <tr>
+            <td class="imagen"><img src="/images/Reloj2.jpg"></td>
+            <td>Reloj Tokio</td>
+            <td><input type="number" name="unidades" id="unidades" max="10" min="0"></td>
+            <td>$22.000</td>
+          </tr>
+          <tr>
+            <td class="imagen"><img src="/images/Reloj3.jpg"></td>
+            <td>Reloj Nogaya</td>
+            <td><input type="number" name="unidades" id="unidades" max="10" min="0"></td>
+            <td>$54.000</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            
+            <th>  </th>
+            <th>  </th>
+            <th>Subtotal: </th>
+            <th> [Sumita de todo]</th>
+          </tr>
+        </tfoot>
+      </table>
+    
+
+
+
+
+
+    <section class="otros-datos">
+        <h4>¿Tienes un cupón de descuento?</h4>
+        <article class="cupon">
+            <div>                
+                <input type="text" placeholder="Código del cupón" name="cupon" id="cupon">
+            </div>
+            <div class="boton-aplicar-cupon">
+                <button type="submit">Aplicar cupón</button>
+            </div>
+        </article>
+        
+        <h4 id="selecEn">Seleccionar envío</h4>
+        <article class="seleccionar-envío">
+           
+            <form>
+
+                    <label for="envío"><input type="radio" name="tipo-envío">Retiro por sucursal</label>
+                    <label for="envío"><input type="radio" name="tipo-envío">Envío por Correo Argentino</label>
+                    <label for="envío"> <input type="radio" name="tipo-envío">Envío a domicilio por OCASA</label>
+                   
+                    <label for="codigopostal" class="codigoPostal">Código Postal</label>
+                    <div>
+                    <input type="text" id="codigopostal" placeholder="Código postal" maxlength="5" required="required"></div>           </form>
+        </article>
+        <article class="finalizar-compra">
+            <div class="total">
+                <label class="titulo-total">Total:</label>
+                <input type="text" name="total">
+            </div>
+            <a href="/user/billing">
+                <label for="comprar"></label>
+                <button class="realizar-compra" type="submit">Realizar compra</button>
+            </a>
+
+        </article>
+    </section>
+
+
+    
+    <%- include('partials/bannerFinal') %>
+</main>
+
+
+<%- include('partials/footer') %>
+
+</body>
+
+</html>
