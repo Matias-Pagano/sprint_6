@@ -42,17 +42,18 @@ let adminController = {
             color_id: req.body.color,
             type_id: req.body.gender
         });
-    //     let imagesCreated = await db.image.bulkInsert([
-    //         {
-    //         file: "product.jpg",
-    //         product_id: productCreated.id
-    //     }
-    // ])
-        let imagesCreated = await db.Image.create({
-            file: "product.jpg",
+        let imagesCreated = await db.image.bulkInsert([
+            {
+            file: req.body.image,
             product_id: productCreated.id
-        })
-        // console.log(productCreated);
+        }
+    ]);
+        // let imagesCreated = await db.image.create({
+        //     file: "Image1",
+        //     product_id: productCreated.id
+        // });
+        console.log(imagesCreated);
+        console.log(productCreated);
         res.redirect('/admin/stock')
     }, 
 }

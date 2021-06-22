@@ -8,8 +8,8 @@
         <%- include('partials/header') %>
 
             <main class="carga-productos">
-                <form action="/admin/create/" method="POST">
-                    <!-- enctype="multipart/form-data" -->
+                <form action="/admin/create/" method="POST" enctype="multipart/form-data">
+                    
                     <section class="categorias">
                         <article class="Datos-producto">
                             <div class="nombre">
@@ -75,12 +75,12 @@
                             <label for="componentesP">Componentes del producto</label>
                             <textarea id="componentesP"></textarea>
                         </article> -->
-                        <!-- <section>
+                        <section>
                             <article class="carga-fotos">
                                 <label for="image">Subir imágenes</label>
                                 <input id="imageP" type="file" name="image" accept="image/*" value="<%= locals.oldData ? oldData.image : null %>">
                             </article>
-                        </section> -->
+                        </section>
                         <article class="unidades-stock">
                             <label for="stock">Unidades en stock</label>
                             <input id="stock" type="number" name= "stock" value="<%= locals.oldData ? oldData.stock : null %>">
@@ -90,7 +90,7 @@
                         </article>
                         <article class="boton-carga-producto">
                             <label for="producto-nuevo"></label>
-                            <button class="boton-guardar-producto" type="submit">producto</button>
+                            <button class="boton-guardar-producto" type="submit">Agregar producto</button>
                         </article>
                         <article class="boton-carga-producto">
                             <label for="volverAtrás"></label>
