@@ -4,6 +4,8 @@ const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const Color = require('../database/models/color');
 
+console.log("llegamos");
+
 let adminController = {
     adminHome: (req, res) => {
         res.render('admin')
