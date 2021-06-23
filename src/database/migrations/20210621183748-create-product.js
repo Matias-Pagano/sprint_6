@@ -24,14 +24,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      stock_min: {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },
-      stock_max: {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },
+      // stock_min: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER
+      // },
+      // stock_max: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER
+      // },
       types_id: {
         allowNull: false,
         type: Sequelize.INTEGER,

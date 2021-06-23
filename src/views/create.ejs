@@ -93,7 +93,7 @@
                         </section>
                         <article class="unidades-stock">
                             <label for="stock">Unidades en stock</label>
-                            <input id="stock" type="number" name= "stock" value="<%= locals.oldData ? oldData.stock : null %>">
+                            <input id="stock" type="number" name="stock" value="<%= locals.oldData ? oldData.stock : null %>">
                             <% if(locals.errors && errors.stock){ %>
                                 <div><%= errors.stock.msg %></div>
                             <% } %>

@@ -12,6 +12,6 @@ router.get('/', adminController.adminHome);
 router.get('/stock', adminController.stock);
 
 router.get('/create', adminController.create);
-router.post('/create', upload.any('image'), adminController.add);
+router.post('/create', upload.single('image'), adminController.add);
 
 module.exports = router;

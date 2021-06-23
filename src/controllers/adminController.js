@@ -15,7 +15,7 @@ let adminController = {
         try{
             let products = await db.Product.findAll({
                 include: [
-                    "colors", "genders", "images", "types"
+                    "color", "gender", "images", "type"
                 ]
             });
             products = JSON.parse(JSON.stringify(products));
@@ -35,31 +35,35 @@ let adminController = {
     },
 
     add: async function (req, res) {
-        console.log(req.body);
+        // console.log(req.body);
         //primero crear el producto 
+        console.log("hasta aca llegamos");
         let productCreated = await db.Product.create({
             name: req.body.name,
             description: req.body.description,
             price: req.body.price,
-            color_id: req.body.color,
-            type_id: req.body.type
+            colors_id: req.body.color,
+            types_id: req.body.type,
+            genders_id: req.body.categorie,
+            stock: req.body.stock
         }).catch(error => {
             console.log(error);
         });
-    //     let imagesCreated = await db.image.bulkInsert([
+        console.log("Hasta aca llegamos pt 2");
+    //     let imagesCreated = await db.Image.bulkCreate([
     //         {
     //         file: req.body.image,
     //         product_id: productCreated.id
     //     }
     // ]);
-        let imagesCreated = await db.image.create({
-            file: req.body.iamge,
+        let imagesCreated = await db.Image.create({
+            file: req.body.image,
             product_id: productCreated.id
         }).catch(error => {
-            console.log(error);
+            console.log(productCreated);
+            console.log(`Esto corresponde al ERROR N° 2: ${error}`);
         });
-        console.log(imagesCreated);
-        console.log(productCreated);
+        console.log("1");
         res.redirect('/admin/stock')
     }, 
 }
