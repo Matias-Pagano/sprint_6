@@ -4,7 +4,7 @@ const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const Color = require('../database/models/color');
 
-console.log("llegamos");
+// console.log("llegamos");
 
 let adminController = {
     adminHome: (req, res) => {
@@ -19,8 +19,8 @@ let adminController = {
                 ]
             });
             products = JSON.parse(JSON.stringify(products));
-            console.log(products);
-            return res.render('stock');
+            // console.log(products);
+            return res.render('stock', {products:products});
         }
         catch(error){
             console.log(error);
@@ -37,7 +37,6 @@ let adminController = {
     add: async function (req, res) {
         // console.log(req.body);
         //primero crear el producto 
-        console.log("hasta aca llegamos");
         let productCreated = await db.Product.create({
             name: req.body.name,
             description: req.body.description,
@@ -49,7 +48,6 @@ let adminController = {
         }).catch(error => {
             console.log(error);
         });
-        console.log("Hasta aca llegamos pt 2");
     //     let imagesCreated = await db.Image.bulkCreate([
     //         {
     //         file: req.body.image,
@@ -60,10 +58,10 @@ let adminController = {
             file: req.body.image,
             product_id: productCreated.id
         }).catch(error => {
-            console.log(productCreated);
+            // console.log(productCreated);
             console.log(`Esto corresponde al ERROR N° 2: ${error}`);
         });
-        console.log("1");
+        console.log(imagesCreated);
         res.redirect('/admin/stock')
     }, 
 }

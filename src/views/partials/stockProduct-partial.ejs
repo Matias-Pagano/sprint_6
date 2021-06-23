@@ -1,6 +1,6 @@
 <section class="big-container-stock">
     <figcaption class="imgStock">
-        <img src="/images/<%= product.image %>" alt="Watch image">
+        <img src="/images/productImages/<%= product.image %>" alt="Product image">
     </figcaption>
 <table class="stockTable">
     <tr>
@@ -10,12 +10,12 @@
 
     </tr>
     <tr>
-        <td class="tdcolor"><%= product.nombre %></td>
-        <td class="tdcolor">$ <%= product.precio %></td>
+        <td class="tdcolor"><%= product.name %></td>
+        <td class="tdcolor">$ <%= product.price %></td>
         <td class="tdcolor"><%= product.stock %></td>
     </tr>
 </table>
 <div class="EditIcon">
-    <a href="producto-stock/<%= product.id %>"> <i class="far fa-edit"></i></a>
+    <a href="stock/<%= product.id %>"> <i class="far fa-edit"></i></a>
  </div>
 </section>

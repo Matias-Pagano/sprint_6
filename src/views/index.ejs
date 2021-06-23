@@ -91,10 +91,14 @@
         </div>
         
         <div class="productosR">
-            <% products.forEach(product => {%>
-                <%- include('partials/product', {product}) %>
+            <% if(locals.products) {%>
+                <% products.forEach(product=> {%>
+                    <%- include('partials/product', {product}) %>
 
-                <%})%> 
+                        <%})%>
+                            <%}else{%>
+                                <p>No se encontraron productos</p>
+                                <% } %>
     
         </div>
        
