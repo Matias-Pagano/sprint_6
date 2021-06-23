@@ -42,18 +42,22 @@ let adminController = {
             description: req.body.description,
             price: req.body.price,
             color_id: req.body.color,
-            type_id: req.body.gender
+            type_id: req.body.type
+        }).catch(error => {
+            console.log(error);
         });
-        let imagesCreated = await db.image.bulkInsert([
-            {
-            file: req.body.image,
+    //     let imagesCreated = await db.image.bulkInsert([
+    //         {
+    //         file: req.body.image,
+    //         product_id: productCreated.id
+    //     }
+    // ]);
+        let imagesCreated = await db.image.create({
+            file: req.body.iamge,
             product_id: productCreated.id
-        }
-    ]);
-        // let imagesCreated = await db.image.create({
-        //     file: "Image1",
-        //     product_id: productCreated.id
-        // });
+        }).catch(error => {
+            console.log(error);
+        });
         console.log(imagesCreated);
         console.log(productCreated);
         res.redirect('/admin/stock')

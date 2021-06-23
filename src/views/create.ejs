@@ -39,9 +39,14 @@
                             <div class="elegir-categoria">
                                 <label for="categorie">Línea</label>
                                 <select name="categorie" id="categoria">
-                                    <option value="Femenina">Femenina</option>
+                                    <% if(productGenders){ %>
+                                        <% productGenders.forEach(gender => { %>
+                                            <option value="<%= gender.id %>"><%= gender.name %></option>
+                                      <% }) %>
+                                   <% } %>
+                                    <!-- <option value="Femenina">Femenina</option>
                                     <option value="Masculina">Masculina</option>
-                                    <option value="No-gender">No-gender</option>
+                                    <option value="No-gender">No-gender</option> -->
                                 </select>
                                 <!-- <input type="text" name="categoria" value="<%= locals.oldData ? oldData.categoria: null %>">
                                 <% if(locals.errors && errors.categoria){ %>
@@ -52,8 +57,13 @@
                             <div class="tipo">
                                 <label for="type">Tipo</label>
                                 <select id="type" name="type">
-                                    <option>Analógico</option>
-                                    <option>Digital</option>
+                                    <% if(productTypes){ %>
+                                        <% productTypes.forEach(type => { %>
+                                            <option value="<%= type.id %>"><%= type.name %></option>
+                                      <% }) %>
+                                   <% } %>
+                                    <!-- <option>Analógico</option>
+                                    <option>Digital</option> -->
                                 </select>
                             </div>
                             <div class="color">
