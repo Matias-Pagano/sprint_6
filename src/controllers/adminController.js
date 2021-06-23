@@ -12,7 +12,7 @@ let adminController = {
     },
 
     stock: async (req, res) => {
-        try{
+        try {
             let products = await db.Product.findAll({
                 include: [
                     "color", "gender", "images", "type"
@@ -20,18 +20,18 @@ let adminController = {
             });
             products = JSON.parse(JSON.stringify(products));
             // console.log(products);
-            return res.render('stock', {products:products});
+            return res.render('stock', { products: products });
         }
-        catch(error){
+        catch (error) {
             console.log(error);
         }
     },
 
-    create: async function (req,res) {
-       let productTypes = await db.Type.findAll();
-       let productColors = await db.Color.findAll();
-       let productGenders = await db.Gender.findAll();        
-        return res.render('create', {productTypes, productColors, productGenders})
+    create: async function (req, res) {
+        let productTypes = await db.Type.findAll();
+        let productColors = await db.Color.findAll();
+        let productGenders = await db.Gender.findAll();
+        return res.render('create', { productTypes, productColors, productGenders })
     },
 
     add: async function (req, res) {
@@ -48,22 +48,43 @@ let adminController = {
         }).catch(error => {
             console.log(error);
         });
-    //     let imagesCreated = await db.Image.bulkCreate([
-    //         {
-    //         file: req.body.image,
-    //         product_id: productCreated.id
-    //     }
-    // ]);
+        //     let imagesCreated = await db.Image.bulkCreate([
+        //         {
+        //         file: req.body.image,
+        //         product_id: productCreated.id
+        //     }
+        // ]);
         let imagesCreated = await db.Image.create({
             file: req.body.image,
             product_id: productCreated.id
         }).catch(error => {
             // console.log(productCreated);
-            console.log(`Esto corresponde al ERROR N° 2: ${error}`);
         });
         console.log(imagesCreated);
         res.redirect('/admin/stock')
-    }, 
+    },
+    delete: (req, res) => {
+        let products = db.Product.findByPk(req.params.id);
+        res.render('edit', { products: products })
+    },
+    destroy: async function (req, res) {
+        try {
+            let productDestroyed = await db.Product.destroy({
+                where: {
+                    id: req.params.id
+                }
+            }
+            );
+            console.log('Eliminé el producto')
+            res.redirect('/admin/stock')
+
+        }
+        catch (error) {
+            console.log(error);
+        }
+
+    }
+
 }
 
 module.exports = adminController;

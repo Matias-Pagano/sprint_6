@@ -11,36 +11,36 @@
 
     <main class="carga-productos">
                     <section class="categorias">
-                    <form action="/vistaAdministrador/producto-stock/<%=  product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <form action="/admin/stock/<%=  products.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                         <article class="Datos-producto">
                             <div class="nombre">
                                 <label>Nombre del producto</label>
-                                <input type="text" name="nombre" value="<%= product.nombre %>" >
-                                <% if(locals.errors && errors.nombre){ %>
-                                    <div><%= errors.nombre.msg %></div>
+                                <input type="text" name="name" value="<%= products.name %>" >
+                                <% if(locals.errors && errors.name){ %>
+                                    <div><%= errors.name.msg %></div>
                                 <% } %>
                             </div>
                              <div class="color">
                                 <label>Descripción</label>
-                                <input type="text" name="description" value="<%= product.description %>">
+                                <input type="text" name="description" value="<%= products.description %>">
                                 <% if(locals.errors && errors.description){ %>
                                     <div><%= errors.description.msg %></div>
                                 <% } %>
                             </div>
                             <div class="precio">
                                 <label>Precio</label>
-                                <input type="number" name="precio" value="<%= product.precio %>">
-                                <% if(locals.errors && errors.precio){ %>
-                                    <div><%= errors.precio.msg %></div>
+                                <input type="number" name="price" value="<%= products.price %>">
+                                <% if(locals.errors && errors.price){ %>
+                                    <div><%= errors.price.msg %></div>
                                 <% } %>
                             </div>
                         </article>
                         <article class="categoria-producto">
                             <div class="elegir-categoria">
                                 <label>Categorí­a</label>
-                                <input type="text" name="categoria" value="<%= product.categoria %>">
-                                <% if(locals.errors && errors.categoria){ %>
-                                    <div><%= errors.categoria.msg %></div>
+                                <input type="text" name="categorie" value="<%= products.categorie %>">
+                                <% if(locals.errors && errors.categorie){ %>
+                                    <div><%= errors.categorie.msg %></div>
                                 <% } %>
                             </div>
                             <div class="tipo">
@@ -70,15 +70,15 @@
                         <section>
                             <article class="carga-fotos">
                                 <label>Subir imágenes</label>
-                                <img src="/images/<%= product.image %>" width="250px">
-                               <input type="file" name="image" value="<%= product.image %>" accept="image/*">
-                               <input type="hidden" name="oldImage" value="<%= product.image %>">
+                                <img src="/images/<%= products.image %>" width="250px">
+                               <input type="file" name="image" value="<%= products.image %>" accept="image/*">
+                               <input type="hidden" name="oldImage" value="<%= products.image %>">
 
                             </article>
                        </section>
                         <article class="unidades-stock">
                             <label>Unidades en stock</label>
-                            <input type="number" name = "stock"<%= product.stock %>>
+                            <input type="number" name="stock" <%= products.stock %>>
                             <% if(locals.errors && errors.stock){ %>
                                 <div><%= errors.stock.msg %></div>
                             <% } %>
@@ -92,11 +92,11 @@
                         </article>
                         <article class="boton-carga-producto">
                             <label for="volverAtrás" method=""></label>
-                            <a href='/vistaAdministrador/producto-stock' class="botonVistaAdministrador">Volver a stock de productos</a>
+                            <a href='/admin/stock' class="botonVistaAdministrador">Volver a stock de productos</a>
                         </article>
                         <article class="boton-carga-producto">
                             <label for="volverAtrás" method=""></label>
-                            <a href='/vistaAdministrador' class="botonVistaAdministrador">Volver a la vista de administrador</a>
+                            <a href='/admin' class="botonVistaAdministrador">Volver a la vista de administrador</a>
                         </article>
                         <br>
                         <br>
@@ -107,7 +107,7 @@
 
                 
 
-            <form action="/vistaAdministrador/producto-stock/<%= product.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+            <form action="/admin/stock/<%= products.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
                             <article class="botonEliminarP">
                     <button class="boton-borrar-producto" type="submit">Eliminar producto</button>
                     </article>

@@ -14,4 +14,7 @@ router.get('/stock', adminController.stock);
 router.get('/create', adminController.create);
 router.post('/create', upload.single('image'), adminController.add);
 
+router.get('/stock/:id', adminController.delete); 
+router.delete('/stock/:id', adminController.destroy)
+
 module.exports = router;
