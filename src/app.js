@@ -8,7 +8,7 @@ const logger = require('morgan');
 const homeRouter = require('./routes/homeRouter');
 const adminRouter = require('./routes/adminRouter');
 // const userRouter = require('./routes/userRouter');
-// const buyerRouter = require('./routes/buyerRouter');
+const buyerRouter = require('./routes/buyerRouter');
 
 const app = express();
 
@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', homeRouter);
 app.use('/admin', adminRouter);
-// app.use('/products', buyerRouter);
+app.use('/products', buyerRouter);
 // app.use('/user', userRouter);
 
 
