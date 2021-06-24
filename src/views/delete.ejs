@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('partials/head') %>
+
+<body>
+    <%- include('partials/header') %>
+    <main class="delete-main">
+
+        <h2>¿Estás seguro de querer eliminar el producto?</h2>
+        <!-- enctype="multipart/form-data" me parece que esto no iría-->
+        <form action="/admin/stock/delete/<%= products.id %>?_method=DELETE" method="POST" >
+            <button type="submit">Eliminar producto</button>
+            
+        </form>
+        <a href="/admin/stock/edit">Volver</a>
+
+    <%- include('partials/bannerFinal') %>
+
+</main>
+
+
+
+<%- include('partials/footer') %>
+
+</body>
+</html>

@@ -107,8 +107,9 @@
 
                 
 
-            <form action="/admin/stock/<%= products.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
+            <!-- <form action="/admin/stock/<porcent= products.id%>?_method=DELETE" method="POST" enctype="multipart/form-data"> -->
                             <article class="botonEliminarP">
+                                <a href="/admin/stock/delete/<%= products.id %>"></a>
                     <button class="boton-borrar-producto" type="submit">Eliminar producto</button>
                     </article>
             </form>
