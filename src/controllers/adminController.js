@@ -55,12 +55,13 @@ let adminController = {
         //     }
         // ]);
         let imagesCreated = await db.Image.create({
-            file: req.body.image,
+            file: req.file.filename,
             product_id: productCreated.id
         }).catch(error => {
             // console.log(productCreated);
+            console.log(error);
         });
-        console.log(imagesCreated);
+        console.log(req.file);
         res.redirect('/admin/stock')
     },
     delete: (req, res) => {
