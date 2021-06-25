@@ -64,25 +64,41 @@ let adminController = {
         console.log(req.file);
         res.redirect('/admin/stock')
     },
-    delete: (req, res) => {
-        let products = db.Product.findByPk(req.params.id);
-        res.render('edit', { products: products })
-    },
-    destroy: async function (req, res) {
-        try {
-            let productDestroyed = await db.Product.destroy({
-                where: {
-                    id: req.params.id
-                }
-            }
-            );
-            console.log('Eliminé el producto')
-            res.redirect('/admin/stock')
 
-        }
-        catch (error) {
-            console.log(error);
-        }
+   //EDITÉ AMBOS MÉTODOS. EL CÓDIGO COMENTADO ES EL CÓDIGO ANTERIOR.
+    delete:  (req, res) => {
+        // let products = db.Product.findByPk(req.params.id);
+        // res.render('edit', { products: products })
+        let productId = req.params.id;
+        Product.findByPk(productId)
+        .then(Product =>{
+            return res.render('delete', {Product})
+            .catch(error => res.send(error))
+        })
+        
+    },
+    destroy:  function (req, res) { //le saqué el async
+        let productId = req.params.id;
+        Product.destroy({where: {id:productId}, force:true})
+        .then(()=>{
+            return res.redirect('/admin/stock') //chequear si esta redirect va bien
+            .catch(error => res.send(error))
+        })
+
+        // try {
+        //     let productDestroyed = await db.Product.destroy({
+        //         where: {
+        //             id: req.params.id
+        //         }
+        //     }
+        //     );
+        //     console.log('Eliminé el producto')
+        //     res.redirect('/admin/stock')
+
+        // }
+        // catch (error) {
+        //     console.log(error);
+        // }
 
     }
 
