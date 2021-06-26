@@ -1,6 +1,6 @@
 function adminMiddleware(req, res, next){
    if(req.session.adminLogged){
-		return res.redirect('/user/vistaAdministrador');
+		return res.redirect('/user/admin');
 
    }
    next();

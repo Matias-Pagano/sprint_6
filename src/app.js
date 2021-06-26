@@ -3,11 +3,12 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const session = require('express-session');
 
 
 const homeRouter = require('./routes/homeRouter');
 const adminRouter = require('./routes/adminRouter');
-// const userRouter = require('./routes/userRouter');
+const userRouter = require('./routes/userRouter');
 const buyerRouter = require('./routes/buyerRouter');
 
 const app = express();
@@ -20,6 +21,11 @@ app.use(express.json())
 //URL encode  - Para que nos pueda llegar la información desde el formulario al req.body
 app.use(express.urlencoded({ extended: false }));
 
+app.use(session({
+	secret: "Es un secreto de Ronins",
+	resave: false,
+	saveUninitialized: false,
+}));
 // app.use('/', (req, res) => res.json({ clave: "con el server" }));
 
 app.listen(PORT, () => {
@@ -41,13 +47,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', homeRouter);
 app.use('/admin', adminRouter);
 app.use('/products', buyerRouter);
-// app.use('/user', userRouter);
+app.use('/user', userRouter);
 
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// // catch 404 and forward to error handler
+// app.use(function(req, res, next) {
+//   next(createError(404));
+// });
 
 // error handler
 app.use(function(err, req, res, next) {

@@ -6,6 +6,10 @@
     scroll-behavior: smooth;
 }
 
+.delete-main{
+    margin-top: 360px;
+}
+
 header {
     width: 100%;
     position: fixed;

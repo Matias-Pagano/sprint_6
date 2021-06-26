@@ -11,7 +11,7 @@
 
     <main class="carga-productos">
                     <section class="categorias">
-                    <form action="/admin/stock/<%=  products.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <form action="/admin/stock/update/<%=  products.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                         <article class="Datos-producto">
                             <div class="nombre">
                                 <label>Nombre del producto</label>
@@ -38,25 +38,36 @@
                         <article class="categoria-producto">
                             <div class="elegir-categoria">
                                 <label>Categorí­a</label>
-                                <input type="text" name="categorie" value="<%= products.categorie %>">
+                                <!-- <input type="text" name="categorie" value="<%= products.categorie %>"> -->
+                                <select name="categorie" id="categoria">
+                                    <% if(productGenders){ %>
+                                        <% productGenders.forEach(gender => { %>
+                                            <option value="<%= gender.id %>"><%= gender.name %></option>
+                                      <% }) %>
+                                   <% } %>
+                                </select>
                                 <% if(locals.errors && errors.categorie){ %>
                                     <div><%= errors.categorie.msg %></div>
                                 <% } %>
                             </div>
                             <div class="tipo">
                                 <label>Tipo</label>
-                                <select>
-                                    <option>Analógico</option>
-                                    <option>Digital</option>
+                                    <select id="type" name="type">
+                                        <% if(productTypes){ %>
+                                            <% productTypes.forEach(type => { %>
+                                                <option value="<%= type.id %>"><%= type.name %></option>
+                                          <% }) %>
+                                       <% } %>
                                 </select>                                
                             </div>
                             <div class="color">
                                 <label for="colorId">Color</label>
-                                <select id="colorId">
-                                    <option>White</option>
-                                    <option>Black</option>
-                                    <option>Gold</option>
-                                    <option>Pink</option>
+                                <select id="colorId" name="color">
+                                    <% if(productColors){ %>
+                                        <% productColors.forEach(color => { %>
+                                            <option value="<%= color.id %>"><%= color.name %></option>
+                                      <% }) %>
+                                   <% } %>
                                 </select>
                             </div>
                        </article>
@@ -76,13 +87,13 @@
 
                             </article>
                        </section>
-                        <article class="unidades-stock">
-                            <label>Unidades en stock</label>
-                            <input type="number" name="stock" <%= products.stock %>>
-                            <% if(locals.errors && errors.stock){ %>
-                                <div><%= errors.stock.msg %></div>
-                            <% } %>
-                        </article>
+                       <article class="unidades-stock">
+                        <label for="stock">Unidades en stock</label>
+                        <input id="stock" type="number" name="stock" value="<%= locals.oldData ? oldData.stock : null %>">
+                        <% if(locals.errors && errors.stock){ %>
+                            <div><%= errors.stock.msg %></div>
+                        <% } %>
+                    </article>
                         <article class="boton-carga-producto">
                             <label for="producto-nuevo" method=""></label>
 
@@ -109,8 +120,9 @@
 
             <!-- <form action="/admin/stock/<porcent= products.id%>?_method=DELETE" method="POST" enctype="multipart/form-data"> -->
                             <article class="botonEliminarP">
-                                <a href="/admin/stock/delete/<%= products.id %>"></a>
+                                <a href="/admin/stock/edit/delete/<%= products.id %>">
                     <button class="boton-borrar-producto" type="submit">Eliminar producto</button>
+                </a>
                     </article>
             </form>
          
