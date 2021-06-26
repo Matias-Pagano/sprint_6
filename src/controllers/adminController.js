@@ -61,7 +61,7 @@ let adminController = {
             // console.log(productCreated);
             console.log(error);
         });
-        console.log(req.file);
+        // console.log(req.file);
         res.redirect('/admin/stock')
     },
 

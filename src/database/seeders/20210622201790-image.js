@@ -12,15 +12,15 @@ module.exports = {
      * }], {});
     */
      await queryInterface.bulkInsert('Images', [{
-      file: 'Image1',
+      file: 'Image1.jpg',
       product_id: 1
     },
     {
-     file: 'Image2',
+     file: 'Image2.jpg',
      product_id: 2
    },
    {
-     file: 'Image3',
+     file: 'Image3.jpg',
      product_id: 3
    }], {});
 },
