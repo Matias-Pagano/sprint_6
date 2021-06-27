@@ -1,6 +1,6 @@
 <article class="articulosR">    
       <a href="/products/productDetail/<%= product.id %> " class="verP">   
-    <img src="/images/productImages<%= product.id %> ">                             
+    <img src="/images/productImages/<%= product.images[0].file %> ">                             
     <div class="detallesProductosR">
         <h3 class="nombreR"><%= product.name %></h3>
         <p class="precioR"> $ <%= product.price %> </p>

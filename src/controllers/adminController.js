@@ -4,8 +4,6 @@ const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const Color = require('../database/models/color');
 
-// console.log("llegamos");
-
 let adminController = {
     adminHome: (req, res) => {
         res.render('admin')
@@ -73,19 +71,27 @@ let adminController = {
         db.Product.findByPk(productId)
             .then(products => {
                 return res.render('delete', { products })
-                    .catch(error => res.send(error))
+                    .catch(error => {
+                        console.log(error);
+                    })
             })
-
     },
 
-    destroy: function (req, res) { //le saqué el async
+    destroy: async function (req, res) { //le saqué el async
         let productId = req.params.id;
-        db.Product.destroy({ where: { id: productId }, force: true })
-            .then(() => {
-                return res.redirect('/admin/stock') //chequear si esta redirect va bien
-                    .catch(error => res.send(error))
-            })
+        await db.Image.destroy({ where: { id: productId }, force: true });
+        await db.Product.destroy({ where: { id: productId }, force: true });
+        return res.redirect('/admin/stock') //chequear si esta redirect va bien
+            .catch(error => console.log(error));
 
+        // destroy: async (req, res) => { //le saqué el async
+        //         let productId = req.params.id;
+        //         db.Image.destroy({ where: { id: productId }, force: true });
+        //         db.Product.destroy({ where: { id: productId }, force: true })
+        //             .then(() => {
+        //                 return res.redirect('/admin/stock') //chequear si esta redirect va bien
+        //                     .catch(error => console.log(error));
+        //             })
         // try {
         //     let productDestroyed = await db.Product.destroy({
         //         where: {
@@ -109,28 +115,25 @@ let adminController = {
         let productGenders = await db.Gender.findAll();
         return res.render('edit', { products, productTypes, productColors, productGenders })
     },
-    update: (req, res) => {
-        db.Product.update({
+    update: async function (req, res) {
+        try {
+            await db.Product.update({
                 name: req.body.name,
                 description: req.body.description,
                 price: req.body.price,
-                colors_id: req.body.colors_id,
-                types_id: req.body.types_id,
-                genders_id: req.body.genders_id,
+                colors_id: req.body.color,
+                types_id: req.body.type,
+                genders_id: req.body.categorie,
                 stock: req.body.stock
             }, {
                 where: {
                     id: req.params.id
                 }
             })
-            .then(product => {
-                return res.status(200).json({
-                    data: product,
-                    status: 200,
-                    updated: 'Ok'
-                })
-            })
-            .catch(error => res.send(error))
+            return res.redirect('/admin/stock');
+        } catch (error) {
+            console.log(error);
+        }
     },
 
 }

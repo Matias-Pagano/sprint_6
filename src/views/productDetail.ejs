@@ -15,9 +15,9 @@
                     <div class="contenedor-carrousel">
                         <div class="diapositivas fade">
                             <div class="numero">1/3</div>
-                            <img src="/images/<%= product.image %>" style="width: 100%">
-                            <div class="nombre-producto"><%= product.nombre %></div>
-                            <div class="precio-producto">$ <%= product.precio %></div>
+                            <img src="/images/productImages/<%= product.image %>" style="width: 100%">
+                            <div class="nombre-producto"><%= product.name %></div>
+                            <div class="precio-producto">$ <%= product.price %></div>
                         </div>
                         <!--
                 <div class="diapositivas fade">
@@ -59,7 +59,7 @@
                         <div class="descripción-artículo">
                             <h4>Descripción del artículo</h4>
                             <p><%= product.description %>
-                            </p>
+                            <!-- </p>
                             <ul type="disc">
                                 <li>Todas las partes de metal están hechas de metal inoxidable.</li>
                                 <li>Movimiento de cuarzo silencioso y preciso</li>
@@ -72,15 +72,15 @@
                                 <li>Caja con logo para almacenamiento y empaque de regalo.</li>
                                 <li>Garantía del fabricante de 24 meses</li>
                                 <li>Diámetro: Aprox. 3.2 cm</li>
-                            </ul>
+                            </ul> -->
                         </div>
-                        <div class="componentes-artículo">
+                        <!-- <div class="componentes-artículo">
                             <h4>Componentes del artículo</h4>
                             <ul type="disc">
                                 <li>Pulsera: cuero</li>
                                 <li>Carcasa: acero inoxidable</li>
                             </ul>
-                        </div>
+                        </div> -->
                     </article>
                     <% if(locals.isLogged){ %>
                     <a class="carrito-compra" href="/user/productCart">

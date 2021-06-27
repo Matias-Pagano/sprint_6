@@ -11,7 +11,7 @@
 
     <main class="carga-productos">
                     <section class="categorias">
-                    <form action="/admin/stock/update/<%=  products.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <form action="/admin/stock/edit/<%=  products.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                         <article class="Datos-producto">
                             <div class="nombre">
                                 <label>Nombre del producto</label>
@@ -81,7 +81,7 @@
                         <section>
                             <article class="carga-fotos">
                                 <label>Subir imágenes</label>
-                                <img src="/images/<%= products.image %>" width="250px">
+                                <img src="/images/productImages/<%= products.image %>" width="250px">
                                <input type="file" name="image" value="<%= products.image %>" accept="image/*">
                                <input type="hidden" name="oldImage" value="<%= products.image %>">
 

@@ -6,8 +6,12 @@ let homeController = {
 
     index: async (req, res) =>{
         try{ 
-            let products = await db.Product.findAll();
-            
+            let products = await db.Product.findAll({
+                include: [
+                   "images"
+                ]
+            });
+
             console.log(products);
             return res.render('index', {products});
         }

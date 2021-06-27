@@ -11,6 +11,7 @@ let userController = {
     },
     loginProcess: (req, res) => {
         let userToLogin = User.User.findByField('email', req.body.email);
+        console.log(userTologin);
 
         if (userToLogin) {
             let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
@@ -55,7 +56,7 @@ let userController = {
         }
         console.log(req.body.email);
         let userInDB = User.User.findByField('email', req.body.email);
-
+        console.log(userInDB);
         if (userInDB) {
             return res.render('register', {
                 errors: {

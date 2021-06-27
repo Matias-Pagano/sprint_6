@@ -15,7 +15,7 @@ router.get('/create', adminController.create);
 router.post('/create', upload.single('image'), adminController.add);
 
 router.get('/stock/edit/:id', adminController.edit);
-router.put('/stock/update/:id', upload.single('image'), adminController.update);
+router.post('/stock/edit/:id', upload.single('image'), adminController.update);
 
 //Para estas rutas vamos a hacer lo siguiente: la ruta pasará a ser /stock/delete/:id
 // vamos a crear una mini vista, en donde cuando apretemos el botón de eliminar producto, te pregunte si querés eliminarlo.
